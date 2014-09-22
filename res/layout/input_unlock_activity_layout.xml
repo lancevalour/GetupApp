@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ProgressBar
+        android:id="@+id/input_unlock_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true" 
+      />
+    
+    
+
+    <TextView
+        android:id="@+id/generated_code_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+   
+        android:layout_centerHorizontal="true"
+        android:text="Random Code"
+        android:textSize="20sp" 
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/input_unlock_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/generated_code_textView"
+        android:layout_centerHorizontal="true"
+        android:hint="Please input the code" 
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/input_unlock_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_unlock_editText"
+        android:layout_centerHorizontal="true"
+        android:text="confirm"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp" />
+
+   
+</RelativeLayout>

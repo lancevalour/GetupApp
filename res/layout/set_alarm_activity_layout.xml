@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/set_alarm_relativeLayout"
+
+    android:background="#FF5F50">
+
+    <TextView
+        android:id="@+id/alarm_time_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="alarm time"
+        android:textColor="#ffffff"
+        android:fontFamily="sans-serif-light"
+             android:textStyle="italic"
+        android:textSize="40sp" />
+
+    <ToggleButton
+        android:id="@+id/on_off_toggleButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/alarm_time_textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:textColor="#334d5c"
+        android:checked="true"
+        android:textSize="20sp" 
+        android:textOff=""
+        android:textOn=""
+        android:background="@drawable/toggle_button_selector"
+        />
+
+    <Button
+        android:id="@+id/set_alarm_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/alarm_time_textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        
+        android:background="@drawable/ic_action_add_alarm"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/cancel_alarm_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/alarm_time_textView"
+        android:layout_centerHorizontal="true"
+        
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/ic_action_cancel_alarm"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+</RelativeLayout>
