@@ -145,11 +145,10 @@ public class PlayMusicService extends Service {
 	}
 
 	private void playSong() throws IllegalArgumentException, SecurityException,
-			IllegalStateException, IOException {
+	IllegalStateException, IOException {
 		ringtoneSet = local_user_information.getStringSet("ringtone", null);
-	
-			addSong();
-		
+
+		addMyOwnSong();
 
 		Calendar c = Calendar.getInstance();
 		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
@@ -204,32 +203,46 @@ public class PlayMusicService extends Service {
 
 	}
 
-	private final String rawPath = "android.resource://main_activity_package//"
-			+ R.raw.song_fri1;
+	private final String rawPath = "android.resource://main_activity_package//";
 
-	private void addDefaultSong() {
-		mon_songList.add(rawPath);
+	private void addMyOwnSong() {
+		mon_songList.add(rawPath + R.raw.song_mon1);
+		mon_songList.add(rawPath + R.raw.song_mon2);
+		mon_songList.add(rawPath + R.raw.song_mon3);
 
-		tue_songList.add(rawPath);
+		tue_songList.add(rawPath + R.raw.song_tue1);
+		tue_songList.add(rawPath + R.raw.song_tue2);
+		tue_songList.add(rawPath + R.raw.song_tue3);
 
-		wed_songList.add(rawPath);
+		wed_songList.add(rawPath + R.raw.song_wed1);
+		wed_songList.add(rawPath + R.raw.song_wed2);
+		wed_songList.add(rawPath + R.raw.song_wed3);
 
-		thu_songList.add(rawPath);
+		thu_songList.add(rawPath + R.raw.song_thu1);
+		thu_songList.add(rawPath + R.raw.song_thu3);
+		thu_songList.add(rawPath + R.raw.song_thu3);
 
-		fri_songList.add(rawPath);
+		fri_songList.add(rawPath + R.raw.song_fri1);
+		fri_songList.add(rawPath + R.raw.song_fri2);
+		fri_songList.add(rawPath + R.raw.song_fri3);
 
-		sat_songList.add(rawPath);
+		sat_songList.add(rawPath + R.raw.song_sat1);
+		sat_songList.add(rawPath + R.raw.song_sat2);
+		sat_songList.add(rawPath + R.raw.song_sat3);
 
-		sun_songList.add(rawPath);
+		sun_songList.add(rawPath + R.raw.song_sun1);
+		sun_songList.add(rawPath + R.raw.song_sun2);
+		sun_songList.add(rawPath + R.raw.song_sun3);
 	}
 
 	private void addSong() {
 		String[] ringtoneArray = new String[7];
-		
-		for (int i = 0; i < 7; i++){
-			ringtoneArray[i] = local_user_information.getString("ringtone_day" + i + 1, "default");
+
+		for (int i = 0; i < 7; i++) {
+			ringtoneArray[i] = local_user_information.getString("ringtone_day"
+					+ i + 1, "default");
 		}
-		
+
 		mon_songList.add(ringtoneArray[0]);
 
 		tue_songList.add(ringtoneArray[1]);
