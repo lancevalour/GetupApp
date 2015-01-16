@@ -1,36 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/set_alarm_relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/set_alarm_relativeLayout"
-
-    android:background="#FF5F50">
+    android:background="#FF5F50" >
 
     <TextView
         android:id="@+id/alarm_time_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:fontFamily="sans-serif-light"
         android:text="alarm time"
         android:textColor="#ffffff"
-        android:fontFamily="sans-serif-light"
-             android:textStyle="italic"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:textStyle="italic" />
 
-    <ToggleButton
-        android:id="@+id/on_off_toggleButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/alarm_time_textView"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
         android:layout_marginTop="70dp"
-        android:textColor="#334d5c"
-        android:checked="true"
-        android:textSize="20sp" 
-        android:textOff=""
-        android:textOn=""
-        android:background="@drawable/toggle_button_selector"
-        />
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center" >
+
+            <ToggleButton
+                android:id="@+id/on_off_toggleButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/toggle_button_selector"
+                android:checked="true"
+                android:textColor="#334d5c"
+                android:textOff=""
+                android:textOn=""
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/setting_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_action_add_alarm"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/set_alarm_button"
@@ -39,7 +67,6 @@
         android:layout_above="@+id/alarm_time_textView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="70dp"
-        
         android:background="@drawable/ic_action_add_alarm"
         android:textColor="#ffffff"
         android:textSize="20sp" />
@@ -50,7 +77,6 @@
         android:layout_height="50dp"
         android:layout_above="@+id/alarm_time_textView"
         android:layout_centerHorizontal="true"
-        
         android:layout_marginBottom="70dp"
         android:background="@drawable/ic_action_cancel_alarm"
         android:textColor="#ffffff"

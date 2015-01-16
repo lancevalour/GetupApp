@@ -36,7 +36,7 @@ public final class R {
     }
     public static final class id {
         public static final int alarm_time_textView=0x7f080017;
-        public static final int cancel_alarm_button=0x7f08001a;
+        public static final int cancel_alarm_button=0x7f08001b;
         public static final int color_unlock_LinearLayout=0x7f080000;
         public static final int color_unlock_button1=0x7f080001;
         public static final int color_unlock_button2=0x7f080002;
@@ -58,13 +58,14 @@ public final class R {
         public static final int message_layout_textView=0x7f080014;
         public static final int on_off_toggleButton=0x7f080018;
         public static final int remind_textView=0x7f080010;
-        public static final int set_alarm_button=0x7f080019;
+        public static final int set_alarm_button=0x7f08001a;
         public static final int set_alarm_relativeLayout=0x7f080016;
-        public static final int show_weather_button=0x7f08001c;
+        public static final int setting_button=0x7f080019;
+        public static final int show_weather_button=0x7f08001d;
         public static final int stop_alarm_button=0x7f080012;
-        public static final int time_picker=0x7f08001b;
+        public static final int time_picker=0x7f08001c;
         public static final int wake_button=0x7f080015;
-        public static final int weather_textView=0x7f08001d;
+        public static final int weather_textView=0x7f08001e;
     }
     public static final class layout {
         public static final int color_unlock_activity_layout=0x7f030000;

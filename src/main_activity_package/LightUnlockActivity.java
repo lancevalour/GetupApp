@@ -361,8 +361,8 @@ public class LightUnlockActivity extends Activity{
 		// TODO Auto-generated method stub
 		super.onDestroy();
 		//stopSong();
-	/*	lock.reenableKeyguard();
-		wakeLock.release();*/
+		lock.reenableKeyguard();
+		wakeLock.release();
 	}
 	
 	

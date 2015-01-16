@@ -14,6 +14,7 @@ import java.util.Random;
 
 
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
@@ -260,18 +261,15 @@ public class ColorUnlockActivity extends Activity{
 		}
 		return true;
 	}
-
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		/*	Intent intent = new Intent(getBaseContext(), LightUnlockActivity.class);
-		startActivity(intent);
-		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);*/
-		/*lock.reenableKeyguard();*/
-
+		//stopSong();
+		lock.reenableKeyguard();
+	
 	}
-
+	
 	private void setBackGround(){
 		relative_layout = (LinearLayout) findViewById(R.id.color_unlock_LinearLayout);
 		Calendar c = Calendar.getInstance();
