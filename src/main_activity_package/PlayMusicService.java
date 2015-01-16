@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -143,14 +144,12 @@ public class PlayMusicService extends Service {
 
 	}
 
-	private void playSong() throws IllegalArgumentException, SecurityException, IllegalStateException, IOException {
+	private void playSong() throws IllegalArgumentException, SecurityException,
+			IllegalStateException, IOException {
 		ringtoneSet = local_user_information.getStringSet("ringtone", null);
-		if (ringtoneSet == null) {
-			addDefaultSong();
-		}
-		else {
+	
 			addSong();
-		}
+		
 
 		Calendar c = Calendar.getInstance();
 		int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
@@ -190,7 +189,8 @@ public class PlayMusicService extends Service {
 					0);
 
 			mediaPlayer = new MediaPlayer();
-			mediaPlayer.setDataSource(getApplicationContext(), Uri.parse(songUri));
+			mediaPlayer.setDataSource(getApplicationContext(),
+					Uri.parse(songUri));
 			mediaPlayer.setWakeMode(getApplicationContext(),
 					PowerManager.PARTIAL_WAKE_LOCK);
 
@@ -203,8 +203,9 @@ public class PlayMusicService extends Service {
 		}
 
 	}
-	
-	private final String rawPath = "android.resource://main_activity_package//" + R.raw.song_fri1;
+
+	private final String rawPath = "android.resource://main_activity_package//"
+			+ R.raw.song_fri1;
 
 	private void addDefaultSong() {
 		mon_songList.add(rawPath);
@@ -223,20 +224,25 @@ public class PlayMusicService extends Service {
 	}
 
 	private void addSong() {
-		String[] rongtoneArray = ringtoneSet.toArray(new String[0]);
-		mon_songList.add(rongtoneArray[0]);
+		String[] ringtoneArray = new String[7];
+		
+		for (int i = 0; i < 7; i++){
+			ringtoneArray[i] = local_user_information.getString("ringtone_day" + i + 1, "default");
+		}
+		
+		mon_songList.add(ringtoneArray[0]);
 
-		tue_songList.add(rongtoneArray[1]);
+		tue_songList.add(ringtoneArray[1]);
 
-		wed_songList.add(rongtoneArray[2]);
+		wed_songList.add(ringtoneArray[2]);
 
-		thu_songList.add(rongtoneArray[3]);
+		thu_songList.add(ringtoneArray[3]);
 
-		fri_songList.add(rongtoneArray[4]);
+		fri_songList.add(ringtoneArray[4]);
 
-		sat_songList.add(rongtoneArray[5]);
+		sat_songList.add(ringtoneArray[5]);
 
-		sun_songList.add(rongtoneArray[6]);
+		sun_songList.add(ringtoneArray[6]);
 
 	}
 

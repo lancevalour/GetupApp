@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -71,9 +73,12 @@ public class SetAlarmActivity extends Activity {
 	private SharedPreferences.Editor local_user_editor;
 	private String PREFS_NAME = "AlarmInfo";
 
-	private Set<String> ringtoneSet;
+	private List<String> ringtoneList;
 	private Integer defaultRingTone;
 	private boolean isAmPm;
+
+	private final String rawPath = "android.resource://main_activity_package//"
+			+ R.raw.song_fri1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +90,14 @@ public class SetAlarmActivity extends Activity {
 		setBackGround();
 
 		local_user_information = this.getSharedPreferences(PREFS_NAME, 0);
+		local_user_editor = local_user_information.edit();
+		if (local_user_information.getString("ringtone_day1", "default").equals(
+				"default")) {
+			for (int i = 1; i <= 7; i++) {
+				local_user_editor.putString("ringtone_day" + i, rawPath);
+				local_user_editor.commit();
+			}
 
-		ringtoneSet = local_user_information.getStringSet("ringtone", null);
-
-		if (ringtoneSet == null) {
-			defaultRingTone = R.raw.song_fri1;
 		}
 
 		alarm_hour = local_user_information.getInt("alarm_hour", 100);
@@ -284,6 +292,7 @@ public class SetAlarmActivity extends Activity {
 															intent,
 															"Choose sound file"),
 													6);
+											dayIndex = which;
 
 										}
 									}
@@ -392,6 +401,8 @@ public class SetAlarmActivity extends Activity {
 
 	}
 
+	private int dayIndex;
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
@@ -423,14 +434,15 @@ public class SetAlarmActivity extends Activity {
 								+ k.getAbsolutePath() + "\"", null);
 				Uri newUri = getContentResolver().insert(uri, values);
 
-				try {
-					RingtoneManager.setActualDefaultRingtoneUri(
-							SetAlarmActivity.this,
-							RingtoneManager.TYPE_RINGTONE, newUri);
-				}
-				catch (Throwable t) {
-
-				}
+				local_user_editor.putString("ringtone_day" + dayIndex + 1, newUri.toString());
+				local_user_editor.commit();
+				/*
+				 * try { RingtoneManager.setActualDefaultRingtoneUri(
+				 * SetAlarmActivity.this, RingtoneManager.TYPE_RINGTONE,
+				 * newUri); } catch (Throwable t) {
+				 * 
+				 * }
+				 */
 			}
 		}
 	}
